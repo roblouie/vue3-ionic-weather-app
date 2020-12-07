@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Tabs from '../views/Tabs.vue'
+import { weatherRoutes } from '@/weather/weather.routes';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,7 +29,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3.vue')
       }
     ]
-  }
+  },
+  ...weatherRoutes
 ]
 
 const router = createRouter({

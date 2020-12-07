@@ -2,17 +2,22 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
+        <ion-title>Current Weather</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
+          <ion-title size="large">Current Weather</ion-title>
         </ion-toolbar>
       </ion-header>
-    
-      <ExploreContainer name="Tab 1 page" />
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="auto" class="min-width">
+            <current-weather></current-weather>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-content>
   </ion-page>
 </template>
@@ -20,9 +25,20 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
+import CurrentWeather from '@/weather/current-weather.vue';
+import commonIonicComponents from '@/shared/common-ionic-components';
 
 export default  {
   name: 'Tab1',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: { 
+    CurrentWeather,
+    ...commonIonicComponents 
+  }
 }
 </script>
+
+<style scoped>
+.min-width {
+  min-width: 350px;
+}
+</style>
